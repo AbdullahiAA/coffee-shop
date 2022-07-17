@@ -1,0 +1,513 @@
+{
+	"id": "1a9a5f4b-8bf8-42b4-a157-df3577dc8b27",
+	"name": "udacity-fsnd-udaspicelatte",
+	"timestamp": "2022-07-17T21:28:11.783Z",
+	"collection_id": "13540559-9ab63f98-8c9a-4ca2-a4ca-b36071108109",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 20,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "44f8d774-36bc-4940-a49b-9c09d5154118",
+			"name": "/drinks",
+			"url": "http://localhost:5000/drinks",
+			"time": 753,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"value contains drinks array": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"value contains drinks array": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				753
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"value contains drinks array": true
+				}
+			]
+		},
+		{
+			"id": "50987618-1ab0-49c0-a156-f148d4b82b97",
+			"name": "/drinks-detail",
+			"url": "http://localhost:5000/drinks-detail",
+			"time": 310,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {
+				"Status code is 401 since no credentials are present": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401 since no credentials are present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				310
+			],
+			"allTests": [
+				{
+					"Status code is 401 since no credentials are present": true
+				}
+			]
+		},
+		{
+			"id": "95aec00f-64b8-4716-8a0e-f613ac6aaf23",
+			"name": "/drinks",
+			"url": "http://localhost:5000/drinks",
+			"time": 17,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {
+				"Status code is 401 since no credentials are present": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401 since no credentials are present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				17
+			],
+			"allTests": [
+				{
+					"Status code is 401 since no credentials are present": true
+				}
+			]
+		},
+		{
+			"id": "71fa1256-fe16-46f4-a139-8a39549eaa15",
+			"name": "/drinks/1",
+			"url": "http://localhost:5000/drinks/1",
+			"time": 11,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {
+				"Status code is 401 since no credentials are present": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401 since no credentials are present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code is 401 since no credentials are present": true
+				}
+			]
+		},
+		{
+			"id": "52883435-546a-4386-b3f8-81b7609db91a",
+			"name": "/drinks/1",
+			"url": "http://localhost:5000/drinks/1",
+			"time": 8,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {
+				"Status code is 401 since no credentials are present": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401 since no credentials are present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 401 since no credentials are present": true
+				}
+			]
+		},
+		{
+			"id": "d9460370-7553-410f-a8b2-9c31df47d74b",
+			"name": "/drinks",
+			"url": "http://localhost:5000/drinks",
+			"time": 654,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"value contains drinks array": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"value contains drinks array": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				654
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"value contains drinks array": true
+				}
+			]
+		},
+		{
+			"id": "a637dc71-88f5-4669-86d2-1ad9104fe43d",
+			"name": "/drinks-detail",
+			"url": "http://localhost:5000/drinks-detail",
+			"time": 6491,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6491
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "031dc8a7-ab3f-46f0-870c-dba40c6210d7",
+			"name": "/drinks",
+			"url": "http://localhost:5000/drinks",
+			"time": 5795,
+			"responseCode": {
+				"code": 403,
+				"name": "FORBIDDEN"
+			},
+			"tests": {
+				"Status code is 403 since credentials are valid, but permission is not present": true
+			},
+			"testPassFailCounts": {
+				"Status code is 403 since credentials are valid, but permission is not present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5795
+			],
+			"allTests": [
+				{
+					"Status code is 403 since credentials are valid, but permission is not present": true
+				}
+			]
+		},
+		{
+			"id": "e2303391-0e6e-4e0d-a61a-b58b7e069356",
+			"name": "/drinks/1",
+			"url": "http://localhost:5000/drinks/1",
+			"time": 1706,
+			"responseCode": {
+				"code": 403,
+				"name": "FORBIDDEN"
+			},
+			"tests": {
+				"Status code is 403 since credentials are valid, but permission is not present": true
+			},
+			"testPassFailCounts": {
+				"Status code is 403 since credentials are valid, but permission is not present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1706
+			],
+			"allTests": [
+				{
+					"Status code is 403 since credentials are valid, but permission is not present": true
+				}
+			]
+		},
+		{
+			"id": "d182b8be-26ec-467c-9694-a44d84e16be8",
+			"name": "/drinks/1",
+			"url": "http://localhost:5000/drinks/1",
+			"time": 6336,
+			"responseCode": {
+				"code": 403,
+				"name": "FORBIDDEN"
+			},
+			"tests": {
+				"Status code is 403 since credentials are valid, but permission is not present": true
+			},
+			"testPassFailCounts": {
+				"Status code is 403 since credentials are valid, but permission is not present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6336
+			],
+			"allTests": [
+				{
+					"Status code is 403 since credentials are valid, but permission is not present": true
+				}
+			]
+		},
+		{
+			"id": "f2f14dfa-1bae-4150-a990-9a4d82a83da2",
+			"name": "/drinks",
+			"url": "http://localhost:5000/drinks",
+			"time": 762,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"value contains drinks array": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"value contains drinks array": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				762
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"value contains drinks array": true
+				}
+			]
+		},
+		{
+			"id": "55309f19-a6ae-4aba-961b-c3f323ccf114",
+			"name": "/drinks-detail",
+			"url": "http://localhost:5000/drinks-detail",
+			"time": 1458,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"value contains drinks array": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"value contains drinks array": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1458
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"value contains drinks array": true
+				}
+			]
+		},
+		{
+			"id": "17ffbceb-3157-438f-8367-fe48d340e8c6",
+			"name": "/drinks",
+			"url": "http://localhost:5000/drinks",
+			"time": 2249,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2249
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "1c342a5e-29b6-4fa6-9067-0305304513d3",
+			"name": "/drinks/1",
+			"url": "http://localhost:5000/drinks/1",
+			"time": 1199,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"value contains drinks array": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"value contains drinks array": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1199
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"value contains drinks array": true
+				}
+			]
+		},
+		{
+			"id": "755c0f8b-25aa-4d36-97d3-0775cacbab43",
+			"name": "/drinks/1",
+			"url": "http://localhost:5000/drinks/1",
+			"time": 1026,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1026
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 28775,
+	"collection": {
+		"requests": [
+			{
+				"id": "44f8d774-36bc-4940-a49b-9c09d5154118",
+				"method": "GET"
+			},
+			{
+				"id": "50987618-1ab0-49c0-a156-f148d4b82b97",
+				"method": "GET"
+			},
+			{
+				"id": "95aec00f-64b8-4716-8a0e-f613ac6aaf23",
+				"method": "POST"
+			},
+			{
+				"id": "71fa1256-fe16-46f4-a139-8a39549eaa15",
+				"method": "PATCH"
+			},
+			{
+				"id": "52883435-546a-4386-b3f8-81b7609db91a",
+				"method": "DELETE"
+			},
+			{
+				"id": "d9460370-7553-410f-a8b2-9c31df47d74b",
+				"method": "GET"
+			},
+			{
+				"id": "a637dc71-88f5-4669-86d2-1ad9104fe43d",
+				"method": "GET"
+			},
+			{
+				"id": "031dc8a7-ab3f-46f0-870c-dba40c6210d7",
+				"method": "POST"
+			},
+			{
+				"id": "e2303391-0e6e-4e0d-a61a-b58b7e069356",
+				"method": "PATCH"
+			},
+			{
+				"id": "d182b8be-26ec-467c-9694-a44d84e16be8",
+				"method": "DELETE"
+			},
+			{
+				"id": "f2f14dfa-1bae-4150-a990-9a4d82a83da2",
+				"method": "GET"
+			},
+			{
+				"id": "55309f19-a6ae-4aba-961b-c3f323ccf114",
+				"method": "GET"
+			},
+			{
+				"id": "17ffbceb-3157-438f-8367-fe48d340e8c6",
+				"method": "POST"
+			},
+			{
+				"id": "1c342a5e-29b6-4fa6-9067-0305304513d3",
+				"method": "PATCH"
+			},
+			{
+				"id": "755c0f8b-25aa-4d36-97d3-0775cacbab43",
+				"method": "DELETE"
+			}
+		]
+	}
+}
