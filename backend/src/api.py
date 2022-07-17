@@ -1,4 +1,3 @@
-import os
 from flask import Flask, request, jsonify, abort
 from sqlalchemy import exc
 import json
@@ -52,11 +51,8 @@ def get_drinks():
 
 
 @app.route('/drinks-detail')
-def get_drinks_detail():
-    # Check for token 401
-
-    # Check for permission 403
-
+@requires_auth('get:drinks-detail')
+def get_drinks_detail(payload):
     drinks = Drink.query.all()
     long_drinks = [drink.long() for drink in drinks]
 
@@ -77,6 +73,51 @@ def get_drinks_detail():
 '''
 
 
+@app.route('/drinks', methods=['POST'])
+@requires_auth('post:drinks')
+def add_drink(payload):
+    try:
+        body = request.get_json()
+
+        req_title = body.get('title', None)
+        req_recipe = body.get('recipe', None)
+
+        if req_title == None:
+            return jsonify({
+                "success": False,
+                "message": "Please enter a title for this recipe"
+            }), 400
+
+        if req_recipe == None:
+            return jsonify({
+                "success": False,
+                "message": "Please enter the recipe information"
+            }), 400
+
+        # Check if the drink exist
+        similar_drink = Drink.query.filter_by(title=req_title).one_or_none()
+
+        if similar_drink != None:
+            return jsonify({
+                "success": False,
+                "message": "Drink already exist"
+            }), 400
+
+        # Convert the recipe list to string for easy storing
+        req_recipe = json.dumps(req_recipe).encode('utf8')
+
+        drink = Drink(title=req_title, recipe=req_recipe)
+        drink.insert()
+
+        return jsonify({
+            "success": True,
+            "drinks": [drink.long()]
+        }), 200
+
+    except:
+        abort(400)
+
+
 '''
 @TODO implement endpoint
     PATCH /drinks/<id>
@@ -90,6 +131,60 @@ def get_drinks_detail():
 '''
 
 
+@app.route('/drinks/<int:id>', methods=['PATCH'])
+@requires_auth('patch:drinks')
+def update_drink(payload, id):
+    try:
+        drink = Drink.query.get(id)
+
+        # Check if the drink does not exist
+        if drink == None:
+            return jsonify({
+                "success": False,
+                "message": "Drink not found"
+            }), 404
+
+        body = request.get_json()
+
+        req_title = body.get('title', None)
+        req_recipe = body.get('recipe', None)
+
+        if req_title == None and req_recipe == None:
+            return jsonify({
+                "success": False,
+                "message": "Please enter the data you want to update"
+            }), 400
+
+        if req_title != None:
+            # Check if drink with that name already exist
+            similar_drink = Drink.query.filter_by(
+                title=req_title).one_or_none()
+
+            if similar_drink != None and similar_drink.id != id:
+                return jsonify({
+                    "success": False,
+                    "message": "Drink with that name already exist"
+                }), 400
+
+            # Handle the update for the title
+            drink.title = req_title
+            drink.insert()
+
+        # Handle the update for the recipe
+        if req_recipe != None:
+            # Convert the recipe list to string for easy storing
+            drink.recipe = json.dumps(req_recipe).encode('utf8')
+            drink.insert()
+
+        return jsonify({
+            "success": True,
+            "drinks": [drink.long()]
+        }), 200
+
+    except:
+        abort(400)
+
+
 '''
 @TODO implement endpoint
     DELETE /drinks/<id>
@@ -100,6 +195,29 @@ def get_drinks_detail():
     returns status code 200 and json {"success": True, "delete": id} where id is the id of the deleted record
         or appropriate status code indicating reason for failure
 '''
+
+
+@app.route('/drinks/<int:id>', methods=['DELETE'])
+@requires_auth('delete:drinks')
+def delete_drink(payload, id):
+    try:
+        # Check if the drink exist
+        drink = Drink.query.get(id)
+        if drink == None:
+            return jsonify({
+                "success": False,
+                "message": "Drink not found"
+            }), 404
+
+        drink.delete()
+
+        return jsonify({
+            "success": True,
+            "delete": id
+        }), 200
+
+    except:
+        abort(400)
 
 
 # Error Handling
@@ -134,7 +252,50 @@ def unprocessable(error):
 '''
 
 
+@app.errorhandler(404)
+def not_found(error):
+    return jsonify({
+        "success": False,
+        "error": 404,
+        "message": "resource not found"
+    }), 404
+
+
+@app.errorhandler(400)
+def bad_request(_error):
+    return jsonify({
+        'success': False,
+        'error': 400,
+        'message': 'Bad request'
+    }), 400
+
+
+@app.errorhandler(405)
+def not_allowed(error):
+    return jsonify({
+        'success': False,
+        'error': 405,
+        'message': 'Method not allowed'
+    }), 405
+
+
+@app.errorhandler(500)
+def server_error(_error):
+    return jsonify({
+        'success': False,
+        'error': 500,
+        'message': 'Server error'
+    }), 500
+
+
 '''
 @TODO implement error handler for AuthError
     error handler should conform to general task above
 '''
+
+
+@app.errorhandler(AuthError)
+def handle_auth_error(ex):
+    response = jsonify(ex.error)
+    response.status_code = ex.status_code
+    return response
